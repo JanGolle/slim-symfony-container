@@ -88,7 +88,7 @@ parameters:
 
 ```
 
-**`NOTE: In your config file you can just override default SLIM settings with your custom values.. or not, it's up to you :) All SLIM necessary settings will be applied to container injection with your params or not.`**
+**NOTE:** You can override default SLIM settings in your config file with your custom values.. or not, it's up to you :) All SLIM necessary settings will be applied to container injection with your params or not.
 
 # Custom wrapper class
 
