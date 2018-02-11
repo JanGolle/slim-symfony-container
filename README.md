@@ -1,1 +1,1 @@
-# Slim with Symfony dependency injection container integration
+# Slim with Symfony DI container integration

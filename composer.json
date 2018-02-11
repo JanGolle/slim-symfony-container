@@ -3,6 +3,8 @@
     "description": "Simple SlimPHP container integration with Symfony dependency injection container",
     "type": "library",
     "license": "MIT",
+    "homepage": "https://github.com/JanGolle/slim-symfony-container",
+    "keywords": ["slim", "symfony", "container", "di container"],
     "authors": [
         {
             "name": "Elijah Zakirov",
