@@ -15,8 +15,6 @@ class SlimDefaultServicesInjectionTest extends TestCase
 {
     /**
      * @throws \Exception
-     * @throws \PHPUnit\Framework\ExpectationFailedException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      */
     public function testConstructorPositiveDefault()
     {
@@ -37,8 +35,6 @@ class SlimDefaultServicesInjectionTest extends TestCase
 
     /**
      * @throws \Exception
-     * @throws \PHPUnit\Framework\ExpectationFailedException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      */
     public function testConstructorPositiveStringWithTrailingDot()
     {
@@ -59,8 +55,6 @@ class SlimDefaultServicesInjectionTest extends TestCase
 
     /**
      * @throws \Exception
-     * @throws \PHPUnit\Framework\ExpectationFailedException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      */
     public function testConstructorPositiveStringWithoutTrailingDot()
     {
@@ -80,8 +74,7 @@ class SlimDefaultServicesInjectionTest extends TestCase
 
     /**
      * @throws \Exception
-     * @throws \PHPUnit\Framework\ExpectationFailedException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     * @throws \ReflectionException
      */
     public function testConstructorPositiveWithNotDefaultServiceProvider()
     {
@@ -101,9 +94,7 @@ class SlimDefaultServicesInjectionTest extends TestCase
     }
 
     /**
-     * @throws \Exception
-     * @throws \PHPUnit\Framework\ExpectationFailedException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     * @throws \ReflectionException
      */
     public function testInjectServicesPositiveWithoutSettingsWithEmptyParameterBag()
     {
@@ -168,9 +159,7 @@ class SlimDefaultServicesInjectionTest extends TestCase
     }
 
     /**
-     * @throws \Exception
-     * @throws \PHPUnit\Framework\ExpectationFailedException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     * @throws \ReflectionException
      */
     public function testInjectServicesPositiveWithSettingsWithEmptyParameterBag()
     {
@@ -250,9 +239,7 @@ class SlimDefaultServicesInjectionTest extends TestCase
     }
 
     /**
-     * @throws \Exception
-     * @throws \PHPUnit\Framework\ExpectationFailedException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     * @throws \ReflectionException
      */
     public function testInjectServicesPositiveWithoutSettingsWithNotEmptyParameterBag()
     {
@@ -318,9 +305,7 @@ class SlimDefaultServicesInjectionTest extends TestCase
     }
 
     /**
-     * @throws \Exception
-     * @throws \PHPUnit\Framework\ExpectationFailedException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     * @throws \ReflectionException
      */
     public function testInjectServicesPositiveWithSettingsWithNotEmptyParameterBag()
     {

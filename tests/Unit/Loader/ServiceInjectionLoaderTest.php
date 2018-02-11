@@ -11,9 +11,6 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 class ServiceInjectionLoaderTest extends TestCase
 {
     /**
-     * @throws \InvalidArgumentException
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \PHPUnit\Framework\MockObject\RuntimeException
      * @throws \ReflectionException
      */
     public function testLoadPositiveWithoutType()
@@ -30,9 +27,6 @@ class ServiceInjectionLoaderTest extends TestCase
     }
 
     /**
-     * @throws \InvalidArgumentException
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \PHPUnit\Framework\MockObject\RuntimeException
      * @throws \ReflectionException
      */
     public function testLoadPositiveWithAnyType()
@@ -50,8 +44,6 @@ class ServiceInjectionLoaderTest extends TestCase
     }
 
     /**
-     * @throws \InvalidArgumentException
-     * @throws \PHPUnit\Framework\Exception
      * @throws \ReflectionException
      *
      * @expectedException \Error
@@ -65,5 +57,33 @@ class ServiceInjectionLoaderTest extends TestCase
 
         $loader = new ServiceInjectionLoader($container);
         $loader->load($resource, $type);
+    }
+
+    /**
+     * @throws \Exception
+     * @throws \ReflectionException
+     */
+    public function testSupportsPositive()
+    {
+        $container = $this->createMock(ContainerBuilder::class);
+        $resource = $this->createMock(ServiceInjectionInterface::class);
+        $type = $this->anything();
+
+        $loader = new ServiceInjectionLoader($container);
+        $this->assertTrue($loader->supports($resource, $type));
+    }
+
+    /**
+     * @throws \Exception
+     * @throws \ReflectionException
+     */
+    public function testSupportsNegative()
+    {
+        $container = $this->createMock(ContainerBuilder::class);
+        $resource = 'unsupported';
+        $type = $this->anything();
+
+        $loader = new ServiceInjectionLoader($container);
+        $this->assertFalse($loader->supports($resource, $type));
     }
 }
