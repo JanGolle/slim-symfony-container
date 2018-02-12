@@ -108,7 +108,7 @@ class SlimDefaultServicesInjectionTest extends TestCase
 
         $serviceProvider->expects($this->once())
             ->method('register')
-            ->with($container);
+            ->with($this->isInstanceOf(\ArrayAccess::class));
 
         $injection = new SlimDefaultServicesInjection($namespace, $serviceProvider);
 
@@ -154,6 +154,10 @@ class SlimDefaultServicesInjectionTest extends TestCase
             ->method('register')
             ->with($slimSettingsKey, $slimSettingsClass)
             ->willReturn($settingsDefinition);
+
+        $container->expects($this->once())
+            ->method('getServiceIds')
+            ->willReturn([]);
 
         $injection->injectServices($container);
     }
@@ -173,7 +177,7 @@ class SlimDefaultServicesInjectionTest extends TestCase
 
         $serviceProvider->expects($this->once())
             ->method('register')
-            ->with($container);
+            ->with($this->isInstanceOf(\ArrayAccess::class));
 
         $injection = new SlimDefaultServicesInjection($namespace, $serviceProvider);
 
@@ -235,6 +239,10 @@ class SlimDefaultServicesInjectionTest extends TestCase
             ->with($slimSettingsKey, $slimSettingsClass)
             ->willReturn($settingsDefinition);
 
+        $container->expects($this->once())
+            ->method('getServiceIds')
+            ->willReturn([]);
+
         $injection->injectServices($container);
     }
 
@@ -252,7 +260,7 @@ class SlimDefaultServicesInjectionTest extends TestCase
 
         $serviceProvider->expects($this->once())
             ->method('register')
-            ->with($container);
+            ->with($this->isInstanceOf(\ArrayAccess::class));
 
         $injection = new SlimDefaultServicesInjection($namespace, $serviceProvider);
 
@@ -301,6 +309,10 @@ class SlimDefaultServicesInjectionTest extends TestCase
             ->with($slimSettingsKey, $slimSettingsClass)
             ->willReturn($settingsDefinition);
 
+        $container->expects($this->once())
+            ->method('getServiceIds')
+            ->willReturn([]);
+
         $injection->injectServices($container);
     }
 
@@ -318,7 +330,7 @@ class SlimDefaultServicesInjectionTest extends TestCase
 
         $serviceProvider->expects($this->once())
             ->method('register')
-            ->with($container);
+            ->with($this->isInstanceOf(\ArrayAccess::class));
 
         $injection = new SlimDefaultServicesInjection($namespace, $serviceProvider);
 
@@ -381,6 +393,10 @@ class SlimDefaultServicesInjectionTest extends TestCase
             ->method('register')
             ->with($slimSettingsKey, $slimSettingsClass)
             ->willReturn($settingsDefinition);
+
+        $container->expects($this->once())
+            ->method('getServiceIds')
+            ->willReturn([]);
 
         $injection->injectServices($container);
     }

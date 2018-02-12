@@ -48,8 +48,9 @@ class SlimDefaultServicesInjection implements ServiceInjectionInterface
         DefaultServicesProvider $slimServicesProvider = null
     ) {
         $this->slimSettingsConfigNamespace = trim($slimSettingsConfigNamespace, '.');
-        $this->slimServicesProvider = is_null($slimServicesProvider) ? new DefaultServicesProvider(
-        ) : $slimServicesProvider;
+        $this->slimServicesProvider = is_null($slimServicesProvider)
+            ? new DefaultServicesProvider()
+            : $slimServicesProvider;
     }
 
     public function injectServices(ContainerBuilder $container)
@@ -69,8 +70,13 @@ class SlimDefaultServicesInjection implements ServiceInjectionInterface
         }
 
         $container->register('settings', Collection::class)->addArgument($settingsParamsMap);
+        $containerExtractor = new \ArrayObject(array_flip($container->getServiceIds()));
 
-        $this->slimServicesProvider->register($container);
+        $this->slimServicesProvider->register($containerExtractor);
+
+        foreach ($containerExtractor as $name => $serviceClosure) {
+            $container->has($name) ?: $container->set($name, call_user_func($serviceClosure, $container));
+        }
     }
 }
 
